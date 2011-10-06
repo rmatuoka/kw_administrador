@@ -1,0 +1,28 @@
+<%= form_for @user, :remote => true do |f| %>
+
+<div id="flash_error_cadastro" style="display:none;"></div>
+
+  <div class="field">
+    <%= f.label :name, "Nome" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name, "Sobrenome" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "E-mail" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Senha" %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmar Senha" %><br />
+    <%= f.text_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
