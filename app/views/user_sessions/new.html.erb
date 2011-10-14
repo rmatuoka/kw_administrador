@@ -3,27 +3,57 @@
 	var htmlold = "";
 	
 	function novoConteudo(){
-		htmlold = $('BoxContent').innerHTML;
-		new Ajax.Request('/password_resets/new',
-		  {
-		    method:'get',
-			onLoading: function (mostrarLoading){
-				$('loading-forgot').show();
+		
+		htmlold = jQuery('box_login').html();
+		var novo = jQuery.ajax({
+			url: '/users/new',
+		    type:'get',
+			beforeSend: function (){
+				//alert("loading");
+				jQuery('#loading-forgot').show();
 			},
-			onLoaded: function (mostrarResposta){
-				$('loading-forgot').hide();
-			},
-		    onSuccess: function(transport){
-		      var response = transport.responseText || "Falha";
-		      //alert("Success! \n\n" + response);
-			$('BoxContent').update(response); 
+		    success: function(response){
+		        //alert(response);
+				jQuery('#loading-forgot').hide();
+				//alert("Success! \n\n" + response);
+				jQuery('#box_login').html(response); 
 		    },
-		    onFailure: function(){ alert('Falha ao carregar a página!') }
+		    error: function(){ 
+				alert('Falha ao carregar a página!') ;
+				jQuery('#loading-forgot').hide();
+			}
 		  })
+	/*	var data = "";
+		jQuery.ajaxSetup({
+			url: '/users/new',
+		    type:'get'
+		});
+		
+		jQuery.ajax(); 
+
+		jQuery('#box_login').ajaxError(function() {
+			jQuery(this).text('ajaxError handler called.');
+		}); 
+
+		jQuery('#box_login').ajaxSuccess(function(e, data) {
+			alert(data.responseHTML);
+			//jQuery(this).html(response.responseHTML);
+		});  
+
+		jQuery('#loading-forgot').ajaxStart(function() {
+			//jQuery(this).show();
+		}); 
+		jQuery('#loading-forgot').ajaxStop(function() {
+			//jQuery(this).hide();
+		}); 
+	*/
 	}
+
+
+
 	
 	function voltaConteudo(){
-		$('BoxContent').update(htmlold); 
+		jQuery('BoxContent').update(htmlold); 
 		htmlold = "";		
 	}
 
@@ -31,6 +61,7 @@
 <%end%>
 <div id="box_login">
 	<%= form_for @user_session, :remote => true do |f| %>
+		<div id="flash_error_login" style="display:none;"></div>
 		<p>
 			<%= f.label :email, "Email" %><br />
 			<%= f.text_field :email %>

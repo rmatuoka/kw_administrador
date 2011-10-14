@@ -1,0 +1,7 @@
+<%if !flash[:error].blank?%>
+	$('#flash_error_login').show();
+	erro = "<%= flash[:error];%>";
+	$('#flash_error_login').html(erro);
+<%else%>
+	window.location.href = "<%= login_path %>";
+<%end%>

@@ -6,10 +6,9 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Usuário logado com sucesso."
-      redirect_to root_url
+     flash[:error] = "" 
     else
-      render :action => 'new'
+      flash[:error] = "Usuário e/ou senha inválidos!"
     end
   end
  
