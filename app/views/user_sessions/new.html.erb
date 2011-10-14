@@ -1,21 +1,22 @@
+<% 
+	content_for :title do "Login" end
+%>
 <%content_for :head do%>
+<%= stylesheet_link_tag "login"%>
 <script>
 	var htmlold = "";
 	
 	function novoConteudo(){
 		
 		htmlold = jQuery('box_login').html();
-		var novo = jQuery.ajax({
+		jQuery.ajax({
 			url: '/users/new',
 		    type:'get',
 			beforeSend: function (){
-				//alert("loading");
 				jQuery('#loading-forgot').show();
 			},
 		    success: function(response){
-		        //alert(response);
 				jQuery('#loading-forgot').hide();
-				//alert("Success! \n\n" + response);
 				jQuery('#box_login').html(response); 
 		    },
 		    error: function(){ 
@@ -23,35 +24,8 @@
 				jQuery('#loading-forgot').hide();
 			}
 		  })
-	/*	var data = "";
-		jQuery.ajaxSetup({
-			url: '/users/new',
-		    type:'get'
-		});
-		
-		jQuery.ajax(); 
-
-		jQuery('#box_login').ajaxError(function() {
-			jQuery(this).text('ajaxError handler called.');
-		}); 
-
-		jQuery('#box_login').ajaxSuccess(function(e, data) {
-			alert(data.responseHTML);
-			//jQuery(this).html(response.responseHTML);
-		});  
-
-		jQuery('#loading-forgot').ajaxStart(function() {
-			//jQuery(this).show();
-		}); 
-		jQuery('#loading-forgot').ajaxStop(function() {
-			//jQuery(this).hide();
-		}); 
-	*/
 	}
 
-
-
-	
 	function voltaConteudo(){
 		jQuery('BoxContent').update(htmlold); 
 		htmlold = "";		
@@ -70,8 +44,10 @@
 			<%= f.label :password, "Senha" %><br />
 			<%= f.password_field :password %>
 		</p>
-		<p><%= f.submit "Enviar" %></p>
+		<br />
+		<p><%= f.submit "Enviar", :class => "Bt_enviar" %></p>
 		<%= image_tag "loading.gif", :style => 'display:none;', :id => 'loading-forgot' %>
+		<br />
 		<p class="EsqueciSenha">
 			<%= link_to "esqueci a senha", "#", :onclick=>"novoConteudo()" %>
 		</p>
