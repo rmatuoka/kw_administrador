@@ -129,7 +129,7 @@
 				#General #Content #Left_box #Item_category #Item_content
 				{
 					position:relative;					
-					border:#F00 1px dashed;
+					/*border:#F00 1px dashed;*/
 					font-family:Verdana, Geneva, sans-serif;
 					font-size:18px;
 					font-weight:normal;
@@ -397,33 +397,38 @@
 			background: url (image.png) repeat-x 0px 0px; /* Background com imagem para degradê para o Opera 10 */
 			cursor:pointer;
 		}
-		#General #Content #Right_box #Warning_ops
+		#General #Content #Right_box #flash_error_cadastro
 		{
 			position:relative;
-			background-image:url(../images/bg_ops.png);
-			background-repeat:no-repeat;
-			background-position:top center;
+			/*background-repeat:no-repeat;
+			background-position:top center;*/
 			width:699px;
-			height:102px;	
-			margin:auto;	
-			padding:10px 0px 10px 0px;	
+			height:auto;	
+			/*margin:auto;	
+			padding:10px 0px 10px 0px;	*/
 		}
-		#General #Content #Right_box #Warning_ok
-		{
-			position:relative;
-			background-image:url(../images/bg_ok.png);
-			background-repeat:no-repeat;
-			background-position:top center;
-			width:699px;
-			height:102px;
-			margin:auto;
-			padding:10px 0px 10px 0px;			
-		}			
+			#General #Content #Right_box .flash_ops
+			{
+				background-image:url(../images/bg_ops.png);
+			}
+			#General #Content #Right_box .flash_ok
+			{
+				background-image:url(../images/bg_ok.png);
+			}
+			
+			#General #Content #Right_box #Box_warning_img
+			{
+				position:absolute;
+				top:50%;
+				margin-top:-35px;
+				left:32px;
+			}
 		#General #Content #Right_box .Box_warning_text
 		{
 			position:relative;
 			width:526px;
-			height:102px;
+			min-height:102px;
+			height:auto;
 			float:right;
 			top:15px;
 			font-family:Verdana, Geneva, sans-serif;

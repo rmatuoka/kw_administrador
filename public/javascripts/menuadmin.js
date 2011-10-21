@@ -1,3 +1,13 @@
+function check_text_onfocus(obj)
+{
+    if(obj.value == obj.defaultValue)
+        obj.value = '';
+}
+function check_text_onblur(obj)
+{
+    if(obj.value=='')
+        obj.value = obj.defaultValue;
+}
 jQuery(document).ready(function() {
     jQuery(".Sub_ul111111").hide();
 //	jQuery("#botao").addClass("closed");  

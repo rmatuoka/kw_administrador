@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   
+  def navegadorie6
+    if browser.ie6?
+      redirect_to atualizar_index_path
+    end 
+  end
+     
   private
   
   def current_user_session
@@ -16,13 +22,17 @@ class ApplicationController < ActionController::Base
    @current_user = current_user_session && current_user_session.record
    end
    
-   rescue_from 'Acl9:AccessDenied', :with => :access_denied
-
-     def access_denied
-       if current_user
-         redirect_to login_path, :notice => 'Usuário logado não tem permissão para acessar esta pagina!'
-       else
-         redirect_to login_path, :notice => "Acesso Negado. Você precisa estar logado!"
-       end
+   rescue_from 'Acl9::AccessDenied', :with => :access_denied
+   
+   def access_denied
+     if current_user
+       flash[:temerro] = " "
+       flash[:error] = 'Você não tem permissão para acessar está página!'
+       redirect_to login_path       
+     else
+       flash[:temerro] = " "
+       flash[:error] = 'Acesso negado. Você precisa estar logado.'
+       redirect_to login_path
      end
+   end
 end

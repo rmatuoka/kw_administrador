@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_filter :navegadorie6
   layout "admin"
   
   def new

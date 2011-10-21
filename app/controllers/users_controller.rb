@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :navegadorie6
   layout "admin"
   def new
     @user = User.new

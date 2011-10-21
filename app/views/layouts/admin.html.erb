@@ -16,47 +16,23 @@ jQuery.noConflict();
 		<div id="Header">
 			<div id="User_bar">
 				<div id="User_bar_content">
-				<% if current_user %>
-				<div id="User_name">
-					<img src="images/img_house.png" width="28" height="23" lass="Usr_bt_align" /><span>Bem Vindo, <%= current_user.name %></span>
-				</div>
-				<div id="Buttons">
-					<%= link_to(image_tag("bt_config.png", :width=>"22", :height=>"22") , edit_user_path(:current), :class => "Usr_bt_align") %>
-					<a href="#" class="Usr_bt_align" ><img src="images/bt_ajuda.png" width="22" height="22"/></a>
-					<%= link_to(image_tag("bt_logout.png", :width=>"22", :height=>"22") , logout_path, :class => "Usr_bt_align") %>
-				</div>
-				<% else %>
-				<%#= link_to "Registrar", new_user_path %> 
-				<%#= link_to "Login", login_path %>
-				<% end %>
+					<%if current_user%>
+					<div id="User_name">
+						<%= link_to image_tag("img_house.png", :width=>"28", :height=>"23", :class=>"Usr_bt_align"), login_path%><span>Bem Vindo, <%= current_user.name %></span>
+					</div>
+					<div id="Buttons">
+						<%= link_to(image_tag("bt_config.png", :width=>"22", :height=>"22") , edit_user_path(:current), :class => "Usr_bt_align") %>
+						<%= link_to(image_tag("bt_ajuda.png", :width=>"22", :height=>"22") , "", :class => "Usr_bt_align") %>
+						<%= link_to(image_tag("bt_logout.png", :width=>"22", :height=>"22") , logout_path, :class => "Usr_bt_align") %>
+					</div>
+					<%end%>
 				</div>
 			</div>
 			<div id="Logo">
-				<img src="images/logo_default.png" width="148" height="83" />
+				<%= image_tag("logo_default.png", :width=>"148", :height=>"83")%>
 			</div>
 		</div>
 		<div id="Content">
-			<% if current_user %>
-			<div id="Left_box">
-				<div id="Item_category" >
-					<h3>Conteúdo</h3>
-					<div class="Tab_menu_left"><a href="#"><img src="images/img_line_up.png" width="220" height="10" /></a></div>
-					<div id="Item_content">
-						<ul class="Sub_ul">
-							<li><a href="#">Notícias</a></li>
-							<ul>
-								<li>subcontent</li>
-							</ul>
-							<li><a href="#">Artigos</a></li>
-							<li><a href="#">Downloads</a></li>
-							<li><a href="#">Produtos</a></li>
-							<li><a href="#">Fotos</a></li>
-							<li><a href="#">Seção</a></li> 
-						</ul>
-					</div>
-				</div>
-			</div>
-			<% end %>
 			<div id="Right_box">
 				<%=yield%>
 			</div>    
