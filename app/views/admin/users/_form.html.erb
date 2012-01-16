@@ -14,8 +14,12 @@
 		</div>
 		<div class="field">
 			<%= f.label :password, "Senha" %>
-			<%= f.text_field :password %>
+			<%= f.password_field :password %>
 		</div>
+		<div class="field">
+			<%= f.label :password_confirmation, "Confirmar Senha" %>
+			<%= f.password_field :password_confirmation %>
+		</div>		
 		<div id="Box_register_form_regras">
 		  <h1>Regras</h1><br />
 		  <p>

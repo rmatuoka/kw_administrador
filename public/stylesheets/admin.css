@@ -137,6 +137,67 @@
 					width:220px;
 					height:auto;	
 				}
+				#General #Content #Left_box #Item_category #Item_content ul{
+					list-style: none;
+				}
+			
+				#General #Content #Left_box #Item_category #Item_content ul#menu
+				{
+					position:relative;
+					display:block;
+					float:left;
+					height:300px;
+					width: 220px;
+				}
+					#General #Content #Left_box #Item_category #Item_content ul#menu li
+					{
+						position:relative;
+						text-decoration:none;
+						font-family:Verdana, Geneva, sans-serif;
+						font-size:12px;
+						padding: 4px 0px;
+					}
+						#General #Content #Left_box #Item_category #Item_content ul#menu li a
+						{
+							display:block;
+						}
+						#General #Content #Left_box #Item_category #Item_content ul#menu li.parent
+						{
+							margin-bottom:10px;
+						}	
+						#General #Content #Left_box #Item_category #Item_content ul#menu li.parent > a
+						{
+							text-decoration:none;
+							background: transparent url(../images/img_line_down.png) right bottom no-repeat;
+							padding-bottom: 15px;
+						}
+						#General #Content #Left_box #Item_category #Item_content ul#menu li.aberto > a
+						{
+							background-color:blue; /* Aqui vai a imagem para fechar*/
+							background: transparent url(../images/img_line_up.png) right bottom no-repeat;
+						}
+						#General #Content #Left_box #Item_category #Item_content ul#menu li ul.sub-menu
+							{
+								margin-left:10px;
+								/* display:none; Faz o submenu vim aberto*/
+							}
+								#General #Content #Left_box #Item_category #Item_content ul#menu li ul.sub-menu li a
+								{
+									position:relative;
+									text-decoration:none;
+									font-family:Verdana, Geneva, sans-serif;
+									color:#999999;
+									font-size:12px;
+								}
+									#General #Content #Left_box #Item_category #Item_content ul#menu li ul.sub-menu li a:hover
+									{
+										position:relative;
+										text-decoration:underline;
+										font-family:Verdana, Geneva, sans-serif;
+										color:#1AD714;
+										font-size:12px;
+									}
+/*				
 					#General #Content #Left_box #Item_category #Item_content Sub_ul
 					{
 						position:relative;
@@ -173,7 +234,8 @@
 									font-family:Verdana, Geneva, sans-serif;
 									color:#1AD714;
 									font-size:12px;
-								}															
+								}	
+	*/															
 		#General #Content #Right_box
 		{
 			position:relative;

@@ -9,7 +9,16 @@
 jQuery.noConflict();
 </script>
 <%= javascript_include_tag "menuadmin.js" %>
+<%= javascript_include_tag "jquery.tablesorter.min.js" %>
 <%=yield :head%>
+<script>
+jQuery(document).ready(function() 
+    { 
+	//	jQuery("li:first.parent > a").trigger('click');
+        jQuery("table").tablesorter(); 
+    } 
+);
+</script>
 </head>
 <body>
 	<div id="General">
@@ -33,25 +42,25 @@ jQuery.noConflict();
 		<div id="Content">
 			<div id="Left_box">
 				<div id="Item_category" >
-					<h3>Conteúdo</h3><br />
-					<!-- 
-					<div class="Tab_menu_left">
-						<%= link_to image_tag("img_line_up.png", :width=>"220", :height=>"10"),"#"%>
-					</div>
-					-->
 					<div id="Item_content">
-						<ul class="Sub_ul">
-							<li><%= link_to "Gerenciar Usuários",admin_users_path%></li>
-							<!-- 
-							<ul>
-								<li>subcontent</li>
-							</ul>
-							<li><a href="#">Artigos</a></li>
-							<li><a href="#">Downloads</a></li>
-							<li><a href="#">Produtos</a></li>
-							<li><a href="#">Fotos</a></li>
-							<li><a href="#">Seção</a></li> 
-							-->
+						<ul id="menu">
+							<li class="parent aberto"><a href="#" title=""><h3>Empresas</h3></a>
+								<ul class="sub-menu">
+									<li>Empresa 1</li>
+									<li>Empresa 2</li>
+									<li>Empresa 3</li>
+									<li>Empresa 4</li>
+									<li>Empresa 5</li>
+								</ul>
+							</li>
+							<%if User.find(current_user.id).has_role? :admin %>
+							<li class="parent aberto"><a href="#" title=""><h3>Ajuste do Site</h3></a>
+								<ul class="sub-menu">
+									<li><%= link_to "Gerenciar Usuários",admin_users_path%></li>
+								</ul>
+							</li>
+							<%end%>
+
 						</ul>
 					</div>
 				</div>
