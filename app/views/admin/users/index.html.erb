@@ -1,13 +1,19 @@
 <% 
 	content_for :title do "Usuários" end
 %>
-<div id="search">
+<h1>Usuários</h1>
+<br />
+
+<div id="name" class="twelve columns">
+	<%=link_to "Novo usuário", new_admin_user_path, :class => "button", :style => "float:right;" %>
+</div>
+
+<div id="search" class="twelve columns">
 <p>Informe o nome, sobrenome ou e-mail do usuário.</p>
-<%=form_tag '/admin/users/search', :method => :get, :name=>"formkeyword"%>
-	<%=text_field_tag :keyword, nil ,:style => "width:400px;"%>
-	<%=submit_tag "Buscar", :class => "Bt_enviar"%>
-</form>
-<br><br>
+	<%=form_tag '/admin/users/search', :method => :get, :name=>"formkeyword"%>
+		<%=text_field_tag :keyword, nil %>
+		<%=submit_tag "Buscar", :class => "button secondary"%>
+	</form>
 </div>
 
 <table>
@@ -27,6 +33,7 @@
     </tr>
   <% end %>
 </table>
+
 <%= will_paginate @users %>
 
 <script>

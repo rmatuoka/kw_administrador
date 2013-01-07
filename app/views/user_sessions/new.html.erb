@@ -45,22 +45,26 @@
 
 </script>
 <%end%>
-<div id="box_login">
+<div id="box_login" class="twelve columns">
 	<h1>Área Restrita</h1><br />
 	<p>Área Restrita. Para acessá-la faça seu login abaixo.</p><br />
+	
 	<div id="flash_error_cadastro" style="display:none;"></div>
+	
 	<%= form_for @user_session, :remote => true do |f| %>
 		<div id="flash_error_login" style="display:none;"></div>
 		<p>
-			<%= f.label :email, "Email" %><br />
-			<%= f.text_field :email %>
+			<%= f.label :email, "Email" %>
+			<%= f.text_field :email, :placeholder => "Usuário" %>
 		</p>
 		<p>
-			<%= f.label :password, "Senha" %><br />
-			<%= f.password_field :password %>
+			<%= f.label :password, "Senha" %>
+			<%= f.password_field :password, :placeholder => "Senha" %>
 		</p>
+		
 		<br />
-		<p><%= f.submit "Enviar", :class => "Bt_enviar" %></p>
+		
+		<p><%= f.submit "Enviar", :class => "button" %></p>
 		<%= image_tag "loading.gif", :style => 'display:none;', :id => 'loading-forgot' %>
 		<br />
 		<p class="EsqueciSenha">
@@ -68,6 +72,7 @@
 		</p>
 	<% end %>
 </div>
+
 <%if !flash[:temerro] %>
 	<%if flash[:error] %>
 	<script>

@@ -2,6 +2,9 @@
 	content_for :title do "Dados do Usuario" end
 %>
 
+<h1>Mostrar Usuário</h1>
+
+
 <p>
   <strong>Nome:</strong>
   <%= @user.name %>
@@ -15,7 +18,7 @@
   <%= @user.email %>
 </p>
 <p>
-  <%= link_to "Edit", edit_admin_user_path(@user) %> |
-  <%= link_to "Destroy", admin_user_path(@user), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_users_path %>
+  <%= link_to "Edit", edit_admin_user_path(@user), :class => "button secondary" %>
+  <%= link_to "Destroy", admin_user_path(@user), :class => "button secondary", :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to "View All", admin_users_path, :class => "button secondary" %>
 </p>

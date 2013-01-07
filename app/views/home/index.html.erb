@@ -1,0 +1,42 @@
+<%content_for :head do%>
+<script>
+$(document).ready(function(){	
+	$('#clinica').click(function(){
+		$('html,body').animate({scrollTop: 0}, 500);
+		selecionado(this);
+		});
+	
+	$('#cirurgia').click(function(){
+		$('html,body').animate({scrollTop: 648}, 500);
+		selecionado(this);
+		});
+	
+	$('#contato').click(function(){
+		$('html,body').animate({scrollTop: 1330}, 500);
+		selecionado(this);
+		});
+		
+});
+</script>
+<%end%>
+
+<%=render :partial => "home"%>
+
+<div id="border-box-top"></div>
+
+<div id='box1'>
+
+</div>
+
+<%=render :partial => "contact"%>
+
+<div id='box3'>
+
+</div>
+<div id='box4'>
+
+</div>
+<div id='box5'>
+	
+</div>
+

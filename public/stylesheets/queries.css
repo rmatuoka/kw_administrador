@@ -1,0 +1,43 @@
+@media screen and (max-width: 1300px)
+{
+    #home-left{
+		left:10px;
+		top:150px;
+	}
+	
+	.tit_home{
+		width:80%;
+		}
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+    #logo{
+	margin-left:400px;
+	}
+	.menu_right{
+	margin-left:350px !important;
+	}
+}
+
+
+@media only screen and (max-device-width: 480px) {
+    #logo{
+	margin-left:400px;
+	}
+	#home-left{
+	left:10px;
+	top:100px;
+	}
+	#menu ul li a{
+	font-size:13pt;
+	}
+	.menu_right{
+	margin-left:290px !important;
+	}
+	#border-box-top{
+	margin-top:-10px;
+	}
+	#border-box2-top{
+	margin-top:-10px;
+	}
+}

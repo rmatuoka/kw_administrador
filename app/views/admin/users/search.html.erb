@@ -1,6 +1,10 @@
 <% 
 	content_for :title do "Resultado da Busca por: #{params[:keyword]}" end
 %>
+
+<h1>Buscando por: <%=params[:keyword]%></h1>
+<br />
+
 <table>
   <tr>
     <th width="200px">Nome</th>
@@ -19,4 +23,4 @@
   <% end %>
 </table>
 <br><br>
-<%=link_to "Voltar", admin_users_path%>
+<%=link_to "Voltar", admin_users_path, :class => "button"%>

@@ -1,0 +1,19 @@
+<div id="User_bar" class="twelve columns">
+	<div id="User_bar_content">
+		<div id="User_name" class="ten columns">
+			<%= link_to image_tag("img_house.png", :width=>"28", :height=>"23", :class=>"Usr_bt_align"), root_path%><span>Bem Vindo, <%= current_user.name %></span>
+		</div>
+	
+		<div id="Buttons" class="two columns">
+			<%= link_to(image_tag("bt_config.png", :width=>"22", :height=>"22") , edit_user_path(:current), :class => "Usr_bt_align") %>
+			<%= link_to(image_tag("bt_ajuda.png", :width=>"22", :height=>"22") , "", :class => "Usr_bt_align") %>
+			<%= link_to(image_tag("bt_logout.png", :width=>"22", :height=>"22") , logout_path, :class => "Usr_bt_align") %>
+		</div>
+	</div>
+</div>
+
+<div id="Header" class="twelve columns">
+	<div id="Logo">
+		<%= image_tag("logo_default.png", :width=>"148", :height=>"83")%>
+	</div>
+</div>
