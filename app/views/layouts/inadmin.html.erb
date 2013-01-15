@@ -18,12 +18,14 @@
 <%= javascript_include_tag "modernizr.foundation" %>
 <%= javascript_include_tag "menuadmin.js" %>
 <%= javascript_include_tag "jquery.tablesorter.min.js" %>
+<%= javascript_include_tag "jquery.foundation.alerts.js" %>
 
 
 <script>
 jQuery(document).ready(function() 
     { 
 	//	jQuery("li:first.parent > a").trigger('click');
+		$(document).foundationAlerts();
         jQuery("table").tablesorter(); 
     } 
 );
